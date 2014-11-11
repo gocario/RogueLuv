@@ -81,7 +81,7 @@ public class Monster extends CellType {
     }
     
     
-    private static char symbol = '.';
+    private static char symbol = '&';
     public char getSymbol() {
         return symbol;
     }

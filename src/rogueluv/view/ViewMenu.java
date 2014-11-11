@@ -32,6 +32,9 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import rogueluv.controller.Scores;
+
+import rogueluv.model.Starway;
 
 /**
  * Classe vue, affiche le menu
@@ -121,19 +124,23 @@ public class ViewMenu extends JMenuBar {
      * @return void
      */
     public void showBestScores(){
-        String meilleursScores = "\nGocario : 20001\nGermain : 20000\n";
-        //TODO: Recuperer les scores
-       JOptionPane.showConfirmDialog(null, "Meilleurs scores : " + meilleursScores.toString(), 
-        "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
-
-        try {
-            File file = new File("./scores.xml");
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-            DocumentBuilder db = dbf.newDocumentBuilder();
-            Document document = db.parse(file);
-        } catch (Exception e) {
-            System.out.println(e);
+        String[] scores = Scores.getBestScores();
+        String meilleursScores = "";
+        if(scores != null)
+        {
+            for(int i=0;i<scores.length;i++) {
+                if(scores[i] != null) {
+                    meilleursScores += "\n" + scores[i];                
+                }
+            }
         }
+        else 
+        {
+            meilleursScores = "\nAucun score enregistré pour le moment";
+        }
+        //TODO: Recuperer les scores
+       JOptionPane.showConfirmDialog(null, "Meilleurs scores : \n" + meilleursScores.toString(), 
+        "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }
 }
 

@@ -3,7 +3,7 @@ package rogueluv.model;
 import javax.swing.JOptionPane;
 
 import rogueluv.controller.RogueLuv;
-import rogueluv.controller.Scores;
+import rogueluv.controller.G_Score;
 
 /**
  * Classe modèle d'un escalier finissant pour RogueLuv

@@ -8,7 +8,7 @@ import java.io.OutputStream;
 
 import java.util.Properties;
 
-public class Scores {
+public class G_Score {
     public static String[] getBestScores(){
         Properties prop = new Properties();
         InputStream input = null;
@@ -99,14 +99,15 @@ public class Scores {
                     Integer oldScore = Integer.parseInt(scores[i].split(":")[1]);
                     //Si on a fait un nouveau record
                     if(newScore > oldScore) {
-                        scores[i] = score;
                         //On décale les scores qui suivent si il y en a encore
                         if(i != 9)
                         {
-                            for(int j = i;j<9;j++) {
-                                scores[j+1] = scores [j];
+                            for(int j = 9;j>i;j--) {
+                                scores[j] = scores[j-1];
                             }
                         }
+                        scores[i] = score;
+                        
                         saveBestScores(scores);
                         return true;
                     }

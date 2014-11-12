@@ -10,7 +10,7 @@ public class ExponentialGStrategy extends CoeffGStrategy {
         return null;
     }
     
-    public int generatePlayerLevel() {
+    public int generatePlayerStrength() {
         //TODO: Implementation
         
         return 0;

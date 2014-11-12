@@ -25,7 +25,7 @@ public class BasicGStrategy extends CoeffGStrategy {
         return generateFloor(null, true);
     }
 
-    public int generatePlayerLevel() {
+    public int generatePlayerStrength() {
         return new Random().rint(minPlayerStrength, maxPlayerStrength);
     }
     

@@ -32,7 +32,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import rogueluv.controller.Scores;
+import rogueluv.controller.G_Score;
 
 import rogueluv.model.Starway;
 
@@ -124,7 +124,7 @@ public class ViewMenu extends JMenuBar {
      * @return void
      */
     public void showBestScores(){
-        String[] scores = Scores.getBestScores();
+        String[] scores = G_Score.getBestScores();
         String meilleursScores = "";
         if(scores != null)
         {

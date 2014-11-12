@@ -39,7 +39,7 @@ public abstract class CoeffGStrategy implements IGStrategy {
     }
 
     public abstract Floor generateFloors();
-    public abstract int generatePlayerLevel();
+    public abstract int generatePlayerStrength();
 
     public float getCoeffGsNormal() {
         return coeffGMonster + coeffGPotion + coeffGTreasure + coeffGVoid;

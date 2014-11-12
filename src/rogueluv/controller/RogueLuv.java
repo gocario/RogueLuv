@@ -116,12 +116,12 @@ public class RogueLuv {
             
         }
         
-
         
         
         Random rand = new Random();
         Player player = Player.resetInstance();
         player.setCurrentFloor(strategy.generateFloors());
+        player.setStrength(strategy.generatePlayerStrength());
         player.setPosition(new Vector2(
             rand.rint(0, player.getCurrentFloor().getSize().getWidth()),
             rand.rint(0, player.getCurrentFloor().getSize().getHeight())
@@ -136,7 +136,8 @@ public class RogueLuv {
         }
         
         windowView.writeConsole("Bienvenue sur RogueLuv - Version 1.1.15");
-        windowView.writeConsole("Vous entrez dans une zone sombre ...");        
+        windowView.writeConsole("Vous entrez dans une zone sombre ...");
+        windowView.setSize(640, 480);
         windowView.update();
         windowView.setVisible(true);
         
@@ -156,10 +157,11 @@ public class RogueLuv {
 
         String pseudo = JOptionPane.showInputDialog(null,"Pseudo :");
         writeConsole("Félicitations " + pseudo + " vous avez fini le jeu.");
-        Boolean scoreAdded = Scores.addScore(pseudo + ":" + Player.getInstance().getGold());
+        Boolean scoreAdded = G_Score.addScore(pseudo + ":" + (Player.getInstance().getGold()+500));
         if(scoreAdded) {
-            writeConsole(pseudo + " à établi un nouveau record de " + Player.getInstance().getGold() + " points !");
+            writeConsole(pseudo + " à établi un nouveau record de " + (Player.getInstance().getGold()+500) + " points !");
         }
+        windowView.showScores();
         isRunning = false;
     }
     
@@ -170,6 +172,12 @@ public class RogueLuv {
     public void loseGame(String monsterName) {
         
         writeConsole("Vous avez été tué par "+monsterName+"...");
+        String pseudo = JOptionPane.showInputDialog(null,"Pseudo :");
+        Boolean scoreAdded = G_Score.addScore(pseudo + ":" + (Player.getInstance().getGold()));
+        if(scoreAdded) {
+            writeConsole(pseudo + " à établi un nouveau record de " + (Player.getInstance().getGold()) + " points !");
+        }
+        windowView.showScores();
         isRunning = false;
     }
     
@@ -294,6 +302,12 @@ public class RogueLuv {
                         cells = null;
                     }
                 }
+                break;
+            }
+        } else {
+            switch (e.getKeyCode()) {
+            case KeyEvent.VK_N:
+                createGame();
                 break;
             }
         }

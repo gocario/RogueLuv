@@ -8,7 +8,7 @@ import rogueluv.model.Floor;
 public interface IGStrategy {
     
     public abstract Floor generateFloors();
-    public abstract int generatePlayerLevel();
+    public abstract int generatePlayerStrength();
     
     /*
     public abstract Floor generateFloor(Floor parent);

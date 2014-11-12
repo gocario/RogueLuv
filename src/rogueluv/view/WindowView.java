@@ -103,7 +103,7 @@ public class WindowView extends JFrame implements KeyListener {
     public void update() {
         vStats.updateStats();
         vFloor.updateFloor();
-        this.pack();
+        //this.pack();
     }
 
     /**
@@ -147,7 +147,15 @@ public class WindowView extends JFrame implements KeyListener {
      * Vide la console
      * @return void
      */
-    public void clearConsole(){
+    public void clearConsole() {
         vConsole.clear();
+    }
+    
+    /**
+     * Affiche les meilleurs scores
+     * @return void
+     */
+    public void showScores() {
+        vMenu.showBestScores();
     }
 }

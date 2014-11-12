@@ -1,5 +1,7 @@
 package rogueluv.model;
 
+import rogueluv.controller.RogueLuv;
+
 /**
  * Classe modèle d'un trésor pour RogueLuv
  * @author gocario
@@ -35,6 +37,7 @@ public class Treasure extends CellType {
     @Override
     public boolean action() {
         System.out.println("Treasure.action()");
+        RogueLuv.getInstance().writeConsole("Vous ramassez "+gold+"$");
         Player.getInstance().addGold(gold);
         return true;
     }

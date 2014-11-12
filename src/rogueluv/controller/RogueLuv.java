@@ -53,6 +53,7 @@ public class RogueLuv {
     private WindowView windowView;
     private IGStrategy strategy;
     private Difficulty difficulty = Difficulty.Normal;
+    private boolean isRunning;
 
     public void setWindowView(WindowView windowView) {
         this.windowView = windowView;
@@ -78,6 +79,13 @@ public class RogueLuv {
         return difficulty;
     }
 
+    public void setIsRunning(boolean isRunning) {
+        this.isRunning = isRunning;
+    }
+
+    public boolean isIsRunning() {
+        return isRunning;
+    }
 
 
     /**
@@ -135,7 +143,36 @@ public class RogueLuv {
         System.out.println("Floor.element.size(): " + player.getCurrentFloor().getElements().size());
         System.out.println("Floor.size: " + player.getCurrentFloor().getSize());
         System.out.println("Player.position: " + player.getPosition());
+        
+        
+        isRunning = true;
     }
+    
+    /**
+     * Fais gagner le jeu
+     * @return void
+     */
+    public void winGame() {
+
+        String pseudo = JOptionPane.showInputDialog(null,"Pseudo :");
+        writeConsole("Félicitations " + pseudo + " vous avez fini le jeu.");
+        Boolean scoreAdded = Scores.addScore(pseudo + ":" + Player.getInstance().getGold());
+        if(scoreAdded) {
+            writeConsole(pseudo + " à établi un nouveau record de " + Player.getInstance().getGold() + " points !");
+        }
+        isRunning = false;
+    }
+    
+    /**
+     * Fais perdre le jeu
+     * @return void
+     */
+    public void loseGame(String monsterName) {
+        
+        writeConsole("Vous avez été tué par "+monsterName+"...");
+        isRunning = false;
+    }
+    
     
     /**
      * Déplace le joueur
@@ -225,39 +262,40 @@ public class RogueLuv {
      */
     public void keyPressed(KeyEvent e) {
         //TODO: Interprète les entrées claviers
-
-        switch (e.getKeyCode()) {
-        case KeyEvent.VK_Z:
-        case KeyEvent.VK_UP:
-            movePlayer(Direction.Up);
-            break;
-
-        case KeyEvent.VK_S:
-        case KeyEvent.VK_DOWN:
-            movePlayer(Direction.Down);
-            break;
-
-        case KeyEvent.VK_Q:
-        case KeyEvent.VK_LEFT:
-            movePlayer(Direction.Left);
-            break;
-
-        case KeyEvent.VK_D:
-        case KeyEvent.VK_RIGHT:
-            movePlayer(Direction.Right);
-            break;
-        
-        case KeyEvent.VK_Y:
-            Player player = Player.getInstance();
-            ArrayList<Cell> cells = player.getCurrentFloor().getUpstairs();  
-            cells.add(player.getCurrentFloor().getDownstairs());
-            for (int i = 0; i < (cells != null ? cells.size() : 0); i++) {
-                if (player.getPosition().equals(cells.get(i).getPosition())) {
-                    moveToFloor(((Stairs) cells.get(i).getCellType()).getFloor());
-                    cells = null;
+        if (isRunning) {
+            switch (e.getKeyCode()) {
+            case KeyEvent.VK_Z:
+            case KeyEvent.VK_UP:
+                movePlayer(Direction.Up);
+                break;
+    
+            case KeyEvent.VK_S:
+            case KeyEvent.VK_DOWN:
+                movePlayer(Direction.Down);
+                break;
+    
+            case KeyEvent.VK_Q:
+            case KeyEvent.VK_LEFT:
+                movePlayer(Direction.Left);
+                break;
+    
+            case KeyEvent.VK_D:
+            case KeyEvent.VK_RIGHT:
+                movePlayer(Direction.Right);
+                break;
+            
+            case KeyEvent.VK_Y:
+                Player player = Player.getInstance();
+                ArrayList<Cell> cells = player.getCurrentFloor().getUpstairs();  
+                cells.add(player.getCurrentFloor().getDownstairs());
+                for (int i = 0; i < (cells != null ? cells.size() : 0); i++) {
+                    if (player.getPosition().equals(cells.get(i).getPosition())) {
+                        moveToFloor(((Stairs) cells.get(i).getCellType()).getFloor());
+                        cells = null;
+                    }
                 }
+                break;
             }
-            break;
         }
     }
 

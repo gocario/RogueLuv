@@ -163,7 +163,7 @@ public class BasicGStrategy extends CoeffGStrategy {
         float theRand = rand.rfloat(0, getCoeffGsNormal());
         
         if ((theRand -= coeffGMonster) <= 0){
-            cell.setCellType(new Monster(rand.rint(minMonsterStrength, maxMonsterStrength), rand.rint(minMonsterGold, maxMonsterGold)));
+            cell.setCellType(new Monster(Monster.getNames()[rand.rint(0, Monster.getNames().length)], rand.rint(minMonsterStrength, maxMonsterStrength), rand.rint(minMonsterGold, maxMonsterGold)));
         } else if ((theRand -= coeffGPotion) <= 0) {
             cell.setCellType(new Potion(rand.rint(minPotionStats, maxPotionStats)));
         } else if ((theRand -= coeffGTreasure) <= 0) {

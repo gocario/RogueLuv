@@ -1,5 +1,7 @@
 package rogueluv.model;
 
+import rogueluv.controller.RogueLuv;
+
 /**
  * Classe modèle d'une potion pour RogueLuv
  * @author gocario
@@ -35,6 +37,7 @@ public class Potion extends rogueluv.model.CellType {
     @Override
     public boolean action() {
         System.out.println("Potion.action()");
+        RogueLuv.getInstance().writeConsole("Votre force a été "+(strength >= 0 ? "augmentée" : "diminuée")+" de "+Math.abs(strength));
         Player.getInstance().addStrength(strength);
         return true;
     }

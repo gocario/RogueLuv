@@ -20,12 +20,7 @@ public class Starway extends CellType {
     public boolean action() {
         //TODO: Finir le jeu
         System.out.println("Starway.action()");
-        String pseudo = JOptionPane.showInputDialog(null,"Pseudo :");
-        RogueLuv.getInstance().writeConsole("Félicitations " + pseudo + " vous avez fini le jeu.");
-        Boolean scoreAdded = Scores.addScore(pseudo + ":" + Player.getInstance().getGold());
-        if(scoreAdded) {
-            RogueLuv.getInstance().writeConsole(pseudo + " à établi un nouveau record de " + Player.getInstance().getGold() + " points!");
-        }
+        RogueLuv.getInstance().winGame();
         return false;
     }
     

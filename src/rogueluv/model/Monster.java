@@ -11,9 +11,23 @@ import rogueluv.framework.Random;
  */
 public class Monster extends CellType {
     
+    private static String[] names = {"Wemmert", "Haristoy", "Schnell", "Divoux", "Karutone-chan", "Succube", "Chauve-souris", "Dragon", "Goblin", "Batman"};
+    public static String[] getNames() {
+        return names;
+    }
+    
+    private String name = null;
     private int strength = 0;
     private int gold = 0;
 
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
 
     public void addStrength(int strength) {
         this.strength += strength;
@@ -43,9 +57,10 @@ public class Monster extends CellType {
     /**
      * Constructeur de la classe
      */
-    public Monster(int strength, int gold) {
-        setStrength(strength);
-        setGold(gold);
+    public Monster(String name, int strength, int gold) {
+        this.name = name;
+        this.strength = strength;
+        this.gold = gold;
     }
 
 
@@ -58,13 +73,15 @@ public class Monster extends CellType {
         //TODO: Faire un lancer aléatoire pour dï¿½terminer l'issue du combat
         System.out.println("Monster.action()");
         
+        Random rand = new Random();
         int fP = Player.getInstance().getStrength();
         int fM = strength;
             
-        if (new Random().rint(0, fP + fM) - fP <= 0) {
-            
+        if (rand.rint(0, fP + fM) - fP <= 0) {
+            Player.getInstance().addStrength(fM * rand.rint(0, 100) / 100);
+            RogueLuv.getInstance().writeConsole("Vous avez battu "+name+" !");
         } else {
-            //RogueLuv.getInstance().lose();
+            RogueLuv.getInstance().loseGame(name);
         }
         
         return true;

@@ -42,13 +42,13 @@ public class Scores {
         } 
         finally {
             if (input != null) {
-                    try {
-                        //On ferme le fichier
-                        input.close();
-                    } 
-                    catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                try {
+                    //On ferme le fichier
+                    input.close();
+                } 
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return res;

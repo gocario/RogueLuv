@@ -107,13 +107,23 @@ public class WindowView extends JFrame implements KeyListener {
     }
 
     /**
+     * Met à jour le nombre de monstres adjacents.
+     * @param count Nombre de monstres proches
+     * @return void
+     */
+    public void updateNearMonsters(int count) {
+        vStats.updateNearMonsters(count);
+    }
+
+
+    /**
      * KeyListener.keyPressed
      * @param e
      * @return void
      */
     public void keyPressed(KeyEvent e) {
         RogueLuv.getInstance().keyPressed(e);
-        System.out.println(e.toString());
+        //System.out.println(e.toString());
     }
 
     /**

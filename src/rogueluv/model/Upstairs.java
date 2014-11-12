@@ -29,7 +29,25 @@ public class Upstairs extends Stairs {
         
         return super.action();
     }
+
+
+    /**
+     * Renvoie le nombre d'or dans les étages suivants
+     * @return int Nombre d'or suivant
+     */
+    @Override
+    public int countGold() {
+        return floor.countGold();
+    }
     
+    /**
+     * Renvoie le nombre de monstre dans les étages suivants
+     * @return int Nombre de monstre suivants
+     */
+    @Override
+    public int countMonster() {
+        return floor.countMonster();
+    }
     
     private static char symbol = '>';
     public char getSymbol() {

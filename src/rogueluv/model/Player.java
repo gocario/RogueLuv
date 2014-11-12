@@ -138,16 +138,22 @@ public final class Player {
     
     /**
      * Découvre 3x3 : les 8 cases autour du joueur
-     * @return void
+     * @return int Nombre de monstres alentours
      */
-    public void discover() {
+    public int discover() {
+        int countMonster = 0;
         for (int i = 0; i < 9; i++) {
             Cell cell = currentFloor.getCell(position.getX() - 1 + i % 3, position.getY() - 1 + i / 3);
             
             if (cell != null) {
+                
+                if (cell.countMonster() == 1) {
+                    countMonster++;
+                }
                 cell.setDiscovered(true);
             }
         }
+        return countMonster;
     }
 
     private static char symbol = '@';

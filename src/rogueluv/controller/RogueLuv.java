@@ -126,7 +126,6 @@ public class RogueLuv {
             rand.rint(0, player.getCurrentFloor().getSize().getWidth()),
             rand.rint(0, player.getCurrentFloor().getSize().getHeight())
         ));
-        player.discover();
         
         //TODO: Si une partie avait déjà été créee on réinitialise la vue
         if (windowView == null) {
@@ -138,13 +137,15 @@ public class RogueLuv {
         windowView.writeConsole("Bienvenue sur RogueLuv - Version 1.1.15");
         windowView.writeConsole("Vous entrez dans une zone sombre ...");
         windowView.setSize(640, 480);
-        windowView.update();
         windowView.setVisible(true);
         
         System.out.println("Floor.element.size(): " + player.getCurrentFloor().getElements().size());
         System.out.println("Floor.size: " + player.getCurrentFloor().getSize());
         System.out.println("Player.position: " + player.getPosition());
         
+
+        windowView.updateNearMonsters(player.discover());
+        windowView.update();
         
         isRunning = true;
     }
@@ -205,7 +206,7 @@ public class RogueLuv {
 
 
             //TODO: Découvrir les case proches 8x8
-            player.discover();
+            windowView.updateNearMonsters(player.discover());
 
             windowView.update();
         }
@@ -248,7 +249,7 @@ public class RogueLuv {
         }
         
         player.setCurrentFloor(floor);
-        player.discover();
+        windowView.updateNearMonsters(player.discover());
         windowView.update();
     }
     

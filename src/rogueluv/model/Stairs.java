@@ -31,6 +31,7 @@ public abstract class Stairs extends CellType {
     public boolean action() {
         
         //RogueLuv.getInstance().moveToFloor(floor);
+        RogueLuv.getInstance().writeConsole("Il y a "+floor.countGold()+"$ et "+floor.countMonster()+" monstres.");
         RogueLuv.getInstance().writeConsole("Voulez vous emprunter les escaliers ? [y]/[zqsd]");
         
         return false;

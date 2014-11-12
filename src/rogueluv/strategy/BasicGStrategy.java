@@ -42,7 +42,9 @@ public class BasicGStrategy extends CoeffGStrategy {
         floor.setSize(new Size(rand.rint(minWidth, maxWidth), rand.rint(minHeight, maxHeight)));
         
         if (parent != null)
-        System.out.println("parent["+floor.getLevel()+"]: "+parent+" // floor["+parent.getLevel()+"]: "+floor);
+            System.out.println("["+parent.getLevel()+"]"+parent+" -> ["+floor.getLevel()+"]"+floor);
+        else
+            System.out.println("[NULL]null -> ["+floor.getLevel()+"]"+floor);
         
         // Normals cells
         for (int row = 0; row < floor.getSize().getHeight(); row++) {

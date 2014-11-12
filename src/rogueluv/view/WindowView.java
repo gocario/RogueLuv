@@ -89,7 +89,7 @@ public class WindowView extends JFrame implements KeyListener {
     }
 
     /**
-     * Affiche un message de demande ï¿½ l'utilisateur pour le changement d'ï¿½tage
+     * Affiche un message de demande à l'utilisateur pour le changement d'étage
      * @return void
      */
     public void askUpstairs() {
@@ -97,7 +97,7 @@ public class WindowView extends JFrame implements KeyListener {
     }
 
     /**
-     * Met ï¿½ jour tous les Views*`v*`.
+     * Met à jour tous les Views*`v*`.
      * @return void
      */
     public void update() {

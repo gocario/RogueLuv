@@ -94,9 +94,9 @@ public final class Player {
     }
 
     /**
-     * DÃ©place le joueur en fonction d'une direction spÃ©cifiÃ©
+     * Déplace le joueur en fonction d'une direction spécifié
      * @param direction Direction
-     * @return true Si le joueur a bougÃ©
+     * @return true Si le joueur a bougé
      */
     public boolean move(Direction direction) {
 
@@ -137,7 +137,7 @@ public final class Player {
     }
     
     /**
-     * DÃ©couvre 3x3 : les 8 cases autour du joueur
+     * Découvre 3x3 : les 8 cases autour du joueur
      * @return void
      */
     public void discover() {

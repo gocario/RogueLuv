@@ -134,7 +134,7 @@ public class RogueLuv {
             windowView.clearConsole();
         }
         
-        windowView.writeConsole("Bienvenue sur RogueLuv - Version 1.1.15");
+        windowView.writeConsole("Bienvenue sur RogueLuv - Version Beta 0.1.2");
         windowView.writeConsole("Vous entrez dans une zone sombre ...");
         windowView.setSize(640, 480);
         windowView.setVisible(true);

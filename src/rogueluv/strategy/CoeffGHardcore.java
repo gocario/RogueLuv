@@ -10,9 +10,9 @@ public class CoeffGHardcore extends BasicGStrategy {
         
         maxStairs = 4;
         
-        minPlayerStrength = 6;
-        maxPlayerStrength = 12;
-        minMonsterStrength = 16;
+        minPlayerStrength = 25;
+        maxPlayerStrength = 40;
+        minMonsterStrength = 15;
         maxMonsterStrength = 30;
         minPotionStats = -20;
         maxPotionStats = +23;

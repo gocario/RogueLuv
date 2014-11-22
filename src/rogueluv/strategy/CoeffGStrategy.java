@@ -22,8 +22,8 @@ public abstract class CoeffGStrategy implements IGStrategy {
     protected int minHeight = 5;
     protected int maxHeight = 10;
     
-    protected int minPlayerStrength = 10;
-    protected int maxPlayerStrength = 20;
+    protected int minPlayerStrength = 80;
+    protected int maxPlayerStrength = 120;
     
     protected int minMonsterGold = 10;
     protected int maxMonsterGold = 15;

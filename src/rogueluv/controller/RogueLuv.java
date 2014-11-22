@@ -91,8 +91,8 @@ public class RogueLuv {
     /**
      * Constructeur de la classe
      */
-    private RogueLuv() {
-        //TODO: Generate the whole labyrinth and the views
+    private RogueLuv() 
+    {
         createGame();
     }
     
@@ -101,7 +101,6 @@ public class RogueLuv {
      * @return void
      */
     public void createGame() {
-        
         switch (difficulty) {
             case Normal:
                 strategy = new BasicGStrategy();
@@ -116,8 +115,6 @@ public class RogueLuv {
             
         }
         
-        
-        
         Random rand = new Random();
         Player player = Player.resetInstance();
         player.setCurrentFloor(strategy.generateFloors());
@@ -127,17 +124,16 @@ public class RogueLuv {
             rand.rint(0, player.getCurrentFloor().getSize().getHeight())
         ));
         
-        //TODO: Si une partie avait déjà été créee on réinitialise la vue
         if (windowView == null) {
             windowView = new WindowView();
-        } else {
+        } 
+        else 
+        {
             windowView.clearConsole();
         }
         
-        windowView.writeConsole("Bienvenue sur RogueLuv - Version Beta 0.1.2");
-        windowView.writeConsole("Vous entrez dans une zone sombre ...");
-        windowView.setSize(640, 480);
-        windowView.setVisible(true);
+        windowView.writeConsole("Bienvenue sur RogueLuv - Version Beta 0.1.4");
+        windowView.writeConsole("Vous entrez dans une cave obscure ...");
         
         System.out.println("Floor.element.size(): " + player.getCurrentFloor().getElements().size());
         System.out.println("Floor.size: " + player.getCurrentFloor().getSize());
@@ -189,8 +185,6 @@ public class RogueLuv {
      * @return true Si le joueur a bougé
      */
     public boolean movePlayer(Direction direction) {
-        //TODO: Déplacer le personnage
-        //TODO: Découvrir les cases alentours
         
         System.out.println(direction);
         Player player = Player.getInstance();
@@ -200,12 +194,10 @@ public class RogueLuv {
 
             System.out.println("Player moved to: " + player.getPosition().toString());
 
-            //TODO: Intéragir avec la nouvelle case
             Cell cell =  player.getCurrentFloor().getCell(player.getPosition());
             cell.action();
 
 
-            //TODO: Découvrir les case proches 8x8
             windowView.updateNearMonsters(player.discover());
 
             windowView.update();
@@ -237,8 +229,6 @@ public class RogueLuv {
      * @return void
      */
     public void moveToFloor(Floor floor) {
-        //TODO: Chercher la position de l'escalier descendant dans 'floor'
-        //TODO: Récupérer se position et l'affecter à 'Player'
         Player player = Player.getInstance();
 
         
@@ -259,7 +249,6 @@ public class RogueLuv {
      * @return void
      */
     public void writeConsole(String string) {
-        //TODO: Call the method ViewConsole.addRow(string);
 
         windowView.writeConsole(string);
     }
@@ -270,7 +259,6 @@ public class RogueLuv {
      * @return void
      */
     public void keyPressed(KeyEvent e) {
-        //TODO: Interprète les entrées claviers
         if (isRunning) {
             switch (e.getKeyCode()) {
             case KeyEvent.VK_Z:

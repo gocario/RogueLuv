@@ -11,10 +11,10 @@ public class CoeffGHard extends BasicGStrategy {
         coeffGMonster = 6;
         coeffGPotion = 5;
         
-        minPlayerStrength = 10;
-        maxPlayerStrength = 15;
+        minPlayerStrength = 70;
+        maxPlayerStrength = 90;
         minMonsterStrength = 10;
-        maxMonsterStrength = 22;
+        maxMonsterStrength = 15;
         minPotionStats = -13;
         maxPotionStats = +16;
         

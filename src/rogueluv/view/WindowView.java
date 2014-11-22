@@ -103,7 +103,7 @@ public class WindowView extends JFrame implements KeyListener {
     public void update() {
         vStats.updateStats();
         vFloor.updateFloor();
-        //this.pack();
+        this.pack();
     }
 
     /**

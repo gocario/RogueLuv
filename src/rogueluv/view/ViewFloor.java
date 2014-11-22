@@ -38,7 +38,7 @@ public class ViewFloor extends JPanel {
         //TODO: Set up the size of the JTextArea`floor`
         
         floorArea = new JTextArea();        
-        floorArea.setFont(new Font("Monospaced", 0, 12));
+        floorArea.setFont(new Font("Monospaced", 0, 20));
         floorArea.setEditable(false);
         floorArea.setLineWrap(true);
         floorArea.addKeyListener(listener);
@@ -74,5 +74,7 @@ public class ViewFloor extends JPanel {
         str.setCharAt(index, player.getSymbol());
         
         floorArea.setText(str.toString());
+		floorArea.setColumns(floor.getSize().getWidth());
+		floorArea.setRows(floor.getSize().getHeight());
     }
 }

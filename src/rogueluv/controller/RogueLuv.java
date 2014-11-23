@@ -91,8 +91,7 @@ public class RogueLuv {
     /**
      * Constructeur de la classe
      */
-    private RogueLuv() 
-    {
+    private RogueLuv() {
         createGame();
     }
     

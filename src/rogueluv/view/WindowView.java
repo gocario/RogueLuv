@@ -83,8 +83,6 @@ public class WindowView extends JFrame implements KeyListener {
         this.setTitle("RogueLuv - 2014");
         this.setFocusable(true);
         this.setFocusTraversalKeysEnabled(false);
-        this.setSize(400,400);
-        this.setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
         this.setVisible(true);
     }
 

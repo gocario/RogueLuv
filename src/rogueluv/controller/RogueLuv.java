@@ -50,10 +50,10 @@ public class RogueLuv {
         return instance;
     }
     
-    private WindowView windowView;
-    private IGStrategy strategy;
+    private WindowView windowView = null;
+    private IGStrategy strategy = null;
     private Difficulty difficulty = Difficulty.Normal;
-    private boolean isRunning;
+    private boolean isRunning = false;
 
     public void setWindowView(WindowView windowView) {
         this.windowView = windowView;
@@ -109,6 +109,7 @@ public class RogueLuv {
                 break;
             case Hardcore:
                 strategy = new CoeffGHardcore();
+				break;
             default:
                 strategy = new BasicGStrategy();
             
@@ -140,7 +141,7 @@ public class RogueLuv {
         
 
         windowView.updateNearMonsters(player.discover());
-        windowView.update();
+        //windowView.update();
         windowView.update();
         windowView.setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
         isRunning = true;

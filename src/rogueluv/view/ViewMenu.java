@@ -76,7 +76,7 @@ public class ViewMenu extends JMenuBar {
         {
             System.out.println("Difficulté => Normal");
             RogueLuv.getInstance().setDifficulty(Difficulty.Normal);
-            RogueLuv.getInstance().writeConsole("Difficulté => Normal");
+            RogueLuv.getInstance().writeConsole("Difficulté => " + RogueLuv.getInstance().getDifficulty());
         }
         });
         submenu.add(menuItem);
@@ -87,7 +87,7 @@ public class ViewMenu extends JMenuBar {
         {
             System.out.println("Difficulté => Difficile");
             RogueLuv.getInstance().setDifficulty(Difficulty.Hard);
-            RogueLuv.getInstance().writeConsole("Difficulté => Difficile");
+            RogueLuv.getInstance().writeConsole("Difficulté => " + RogueLuv.getInstance().getDifficulty());
         }
         });
         submenu.add(menuItem);
@@ -97,7 +97,7 @@ public class ViewMenu extends JMenuBar {
         {
             System.out.println("Difficulté => Hardcore");
             RogueLuv.getInstance().setDifficulty(Difficulty.Hardcore);
-            RogueLuv.getInstance().writeConsole("Difficulté => Hardcore");
+            RogueLuv.getInstance().writeConsole("Difficulté => " + RogueLuv.getInstance().getDifficulty());
         }
         });
         

@@ -141,8 +141,8 @@ public class RogueLuv {
         
 
         windowView.updateNearMonsters(player.discover());
-        //windowView.update();
         windowView.update();
+        windowView.update(); // Bizarrement, sans le second, cela pose problème
         windowView.setLocationRelativeTo(null); //On centre la fenêtre sur l'écran
         isRunning = true;
     }

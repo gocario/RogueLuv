@@ -94,7 +94,7 @@ public class RogueLuv {
      */
     private RogueLuv() {
         createGame();
-        windowView.showTutorial();
+        windowView.getVMenu().showTutorial();
     }
     
     /**

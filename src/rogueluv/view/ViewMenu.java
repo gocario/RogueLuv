@@ -130,9 +130,20 @@ public class ViewMenu extends JMenuBar {
         });
         menu.add(menuItem);
         
+        //Menu tuto
+        menu.addSeparator();
+        menuItem = new JMenuItem("Afficher le tuto");
+        menuItem.addActionListener(new java.awt.event.ActionListener(){
+        public void actionPerformed(ActionEvent e) 
+        {
+            tuto();
+        }
+        });
+        menu.add(menuItem);
+        
         //CheckBox Tutorial
         menu.addSeparator();
-        final JCheckBoxMenuItem checkItem = new JCheckBoxMenuItem("Tutorial");
+        final JCheckBoxMenuItem checkItem = new JCheckBoxMenuItem("Tutorial au démarrage");
         if(G_Tuto.getTuto()) 
         {
             checkItem.setState(true);
@@ -180,6 +191,22 @@ public class ViewMenu extends JMenuBar {
         "Information", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }
     
+    public void showTutorial() {
+        if(G_Tuto.getTuto())
+        {
+            tuto();
+        }
+    }
+    
+    public void tuto(){
+        JOptionPane.showConfirmDialog(null, 
+            "Déplacement : ZQSD ou les flèches directionnelles.\n" +
+            "Appuyez sur [Y] pour emprunter un escalier\n" +
+            "Difficulté modifiable dans le menu correspondant\n" +
+            "Raccourci pour lancer la partie : [N]\n\n" +
+            "Bon jeu !"
+        , "Tutorial \n", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }
     
 }
 

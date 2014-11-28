@@ -169,16 +169,13 @@ public class WindowView extends JFrame implements KeyListener {
         vMenu.showBestScores();
     }
     
-    public void showTutorial() {
-        if(G_Tuto.getTuto())
-        {
-            JOptionPane.showConfirmDialog(null, 
-                "Déplacement : ZQSD ou les flèches directionnelles.\n" +
-                "Appuyez sur [Y] pour emprunter un escalier\n" +
-                "Difficulté modifiable dans le menu correspondant\n" +
-                "Raccourci pour lancer la partie : [N]\n\n" +
-                "Bon jeu !"
-            , "Tutorial \n", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
-        }
+    public void setVMenu(ViewMenu vMenu) {
+            this.vMenu = vMenu;
     }
+
+    public ViewMenu getVMenu() {
+        return vMenu;
+    }
+    
+    
 }

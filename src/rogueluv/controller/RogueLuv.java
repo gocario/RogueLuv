@@ -157,9 +157,9 @@ public class RogueLuv {
 
         String pseudo = JOptionPane.showInputDialog(null,"Pseudo :");
         writeConsole("Félicitations " + pseudo + " vous avez fini le jeu.");
-        Boolean scoreAdded = G_Score.addScore(pseudo + ":" + (Player.getInstance().getGold()+500));
+        Boolean scoreAdded = G_Score.addScore(pseudo + ":" + (Player.getInstance().getGold()*2));
         if(scoreAdded) {
-            writeConsole(pseudo + " à établi un nouveau record de " + (Player.getInstance().getGold()+500) + " points !");
+            writeConsole(pseudo + " à établi un nouveau record de " + (Player.getInstance().getGold()*2) + " points !");
         }
         windowView.showScores();
         isRunning = false;

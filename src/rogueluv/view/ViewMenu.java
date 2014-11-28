@@ -46,6 +46,8 @@ import org.w3c.dom.NodeList;
 
 import rogueluv.controller.G_Score;
 
+import rogueluv.controller.G_Tuto;
+
 import rogueluv.model.Starway;
 
 /**
@@ -131,7 +133,7 @@ public class ViewMenu extends JMenuBar {
         //CheckBox Tutorial
         menu.addSeparator();
         final JCheckBoxMenuItem checkItem = new JCheckBoxMenuItem("Tutorial");
-        if(getTuto()) 
+        if(G_Tuto.getTuto()) 
         {
             checkItem.setState(true);
         }
@@ -139,12 +141,12 @@ public class ViewMenu extends JMenuBar {
         public void actionPerformed(ActionEvent e) 
         {
             if(checkItem.getState()){
-                modifyTuto(true);
+                G_Tuto.modifyTuto(true);
                 System.out.println("Tutorial activé");
             }
             else
             {
-                modifyTuto(false);
+                G_Tuto.modifyTuto(false);
                 System.out.println("Tutorial desactivé");
             }
         }
@@ -178,69 +180,7 @@ public class ViewMenu extends JMenuBar {
         "Information", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
     }
     
-    public void modifyTuto(Boolean activated)
-    {
-        Properties prop = new Properties();
-        OutputStream output = null;
-        try 
-        {
-            output = new FileOutputStream("tuto.properties");
-            if(activated) 
-            {
-                prop.setProperty("tutorialEnabled", "true");
-            }
-            else 
-            {
-                prop.setProperty("tutorialEnabled", "false");
-            }
-            prop.store(output, null);
-        } 
-        catch (IOException io) 
-        {
-            io.printStackTrace();
-        } 
-        finally
-        {
-            if (output != null) {
-                try {
-                    output.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
     
-    public boolean getTuto()
-    {
-        Properties prop = new Properties();
-        InputStream input = null;
-        Boolean res = true;
-        try 
-        {
-            input = new FileInputStream("tuto.properties");
-            // Chargement du fichier
-            prop.load(input);
-            res = (prop.getProperty("tutorialEnabled").equals("true"));
-        }
-        catch (IOException ex) 
-        {
-            System.out.println("Fichier non existant");
-        } 
-        finally 
-        {
-            if (input != null) {
-                try {
-                    //On ferme le fichier
-                    input.close();
-                } 
-                catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        return res;
-    }
 }
 
 

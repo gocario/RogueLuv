@@ -17,6 +17,7 @@ import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import rogueluv.controller.G_Tuto;
 import rogueluv.controller.RogueLuv;
 
 /**
@@ -169,7 +170,7 @@ public class WindowView extends JFrame implements KeyListener {
     }
     
     public void showTutorial() {
-        if(vMenu.getTuto())
+        if(G_Tuto.getTuto())
         {
             JOptionPane.showConfirmDialog(null, 
                 "Déplacement : ZQSD ou les flèches directionnelles.\n" +

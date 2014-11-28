@@ -18,6 +18,11 @@ public class CoeffGHard extends BasicGStrategy {
         minPotionStats = -13;
         maxPotionStats = +16;
         
+        maxFloor = 11;
+        maxStairs = 4;
+        floorWidth = 15;
+        floorHeight = 15;
+        
         minMonsterGold = 14;
         maxMonsterGold = 19;
         minTreasureGold = 16;

@@ -14,17 +14,19 @@ public abstract class CoeffGStrategy implements IGStrategy {
     protected float coeffGStairs = 3;
     protected float coeffGTreasure = 4;
     protected float coeffGVoid = 20;
-    
+
     protected int maxFloor = 10;
     protected int maxStairs = 3;
     protected int minWidth = 10;
     protected int maxWidth = 15;
     protected int minHeight = 5;
     protected int maxHeight = 10;
-    
+    protected int floorWidth = 10;
+    protected int floorHeight = 10;
+
     protected int minPlayerStrength = 80;
     protected int maxPlayerStrength = 120;
-    
+
     protected int minMonsterGold = 10;
     protected int maxMonsterGold = 15;
     protected int minMonsterStrength = 5;
@@ -33,21 +35,20 @@ public abstract class CoeffGStrategy implements IGStrategy {
     protected int maxPotionStats = +10;
     protected int minTreasureGold = 10;
     protected int maxTreasureGold = 15;
-    
+
     public CoeffGStrategy() {
-        
+
     }
 
     public abstract Floor generateFloors();
+
     public abstract int generatePlayerStrength();
 
     public float getCoeffGsNormal() {
         return coeffGMonster + coeffGPotion + coeffGTreasure + coeffGVoid;
     }
-    
-    
-    
-    
+
+
     public void setCoeffGMonster(float coeffGMonster) {
         this.coeffGMonster = coeffGMonster;
     }
@@ -134,6 +135,22 @@ public abstract class CoeffGStrategy implements IGStrategy {
 
     public int getMaxHeight() {
         return maxHeight;
+    }
+
+    public void setFloorWidth(int floorWidth) {
+        this.floorWidth = floorWidth;
+    }
+
+    public int getFloorWidth() {
+        return floorWidth;
+    }
+
+    public void setFloorHeight(int floorHeight) {
+        this.floorHeight = floorHeight;
+    }
+
+    public int getFloorHeight() {
+        return floorHeight;
     }
 
     public void setMinPlayerStrength(int minPlayerStrength) {

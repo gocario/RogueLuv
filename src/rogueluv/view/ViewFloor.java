@@ -47,7 +47,7 @@ public class ViewFloor extends JPanel {
     }
     
     /**
-     * Met Ã  jour l'affichage du palier
+     * Met à jour l'affichage du palier
      * @return void
      */
     public void updateFloor() {

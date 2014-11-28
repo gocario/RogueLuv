@@ -19,7 +19,7 @@ import javax.swing.JPanel;
 import rogueluv.controller.RogueLuv;
 
 /**
- * Classe vue, affiche la fenï¿½tre principale pour RogueLuv
+ * Classe vue, affiche la fenêtre principale pour RogueLuv
  * @author germain
  * @version 1.0
  */
@@ -47,19 +47,19 @@ public class WindowView extends JFrame implements KeyListener {
         
         //Ajout de la barre de menu
         vMenu = new ViewMenu();
-        this.setJMenuBar((JMenuBar)vMenu);
+        this.setJMenuBar(vMenu);
         
-        //JpanelEast
+        //JPanelEast
         JPanel jpEast = new JPanel();
         vStats = new ViewStats(this);
         jpEast.add(vStats);
         
-        //JpanelCenter
+        //JPanelCenter
         JPanel jpCenter = new JPanel(new FlowLayout());
         vFloor = new ViewFloor(this);
         jpCenter.add(vFloor);
         
-        //JpanelSouth
+        //JPanelSouth
         JPanel jpSouth = new JPanel(new FlowLayout());
         vConsole = new ViewConsole(this);
         vConsole.setBackgroundColor(Color.black);

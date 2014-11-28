@@ -134,7 +134,7 @@ public class RogueLuv {
             windowView.clearConsole();
         }
         
-        windowView.writeConsole("Bienvenue sur RogueLuv - Version Beta 0.1.4");
+        windowView.writeConsole("Bienvenue sur RogueLuv - Version Release 0.1.0");
         windowView.writeConsole("Vous entrez dans une cave obscure ...");
         
         System.out.println("Floor.element.size(): " + player.getCurrentFloor().getElements().size());

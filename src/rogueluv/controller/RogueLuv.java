@@ -32,6 +32,7 @@ import rogueluv.strategy.CoeffGHardcore;
 import rogueluv.strategy.CoeffGStrategy;
 import rogueluv.strategy.IGStrategy;
 
+import rogueluv.view.ViewMenu;
 import rogueluv.view.WindowView;
 
 /**
@@ -93,6 +94,7 @@ public class RogueLuv {
      */
     private RogueLuv() {
         createGame();
+        windowView.showTutorial();
     }
     
     /**

@@ -1,5 +1,6 @@
 package rogueluv.view;
 
+import java.awt.CheckboxMenuItem;
 import java.awt.Color;
 
 import java.awt.event.ActionEvent;
@@ -25,6 +26,17 @@ import rogueluv.strategy.CoeffGHard;
 import rogueluv.strategy.CoeffGHardcore;
 
 import java.io.File;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
+import java.util.Properties;
+
+import javax.swing.JCheckBoxMenuItem;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import org.w3c.dom.Document;
@@ -115,6 +127,29 @@ public class ViewMenu extends JMenuBar {
         }
         });
         menu.add(menuItem);
+        
+        //CheckBox Tutorial
+        menu.addSeparator();
+        final JCheckBoxMenuItem checkItem = new JCheckBoxMenuItem("Tutorial");
+        if(getTuto()) 
+        {
+            checkItem.setState(true);
+        }
+        checkItem.addActionListener(new java.awt.event.ActionListener(){
+        public void actionPerformed(ActionEvent e) 
+        {
+            if(checkItem.getState()){
+                modifyTuto(true);
+                System.out.println("Tutorial activé");
+            }
+            else
+            {
+                modifyTuto(false);
+                System.out.println("Tutorial desactivé");
+            }
+        }
+        });
+        menu.add(checkItem);
 
         this.add(menuBar);
     }
@@ -140,7 +175,71 @@ public class ViewMenu extends JMenuBar {
         }
         //TODO: Recuperer les scores
        JOptionPane.showConfirmDialog(null, "Meilleurs scores : \n" + meilleursScores.toString(), 
-        "Information", JOptionPane.OK_CANCEL_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        "Information", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public void modifyTuto(Boolean activated)
+    {
+        Properties prop = new Properties();
+        OutputStream output = null;
+        try 
+        {
+            output = new FileOutputStream("tuto.properties");
+            if(activated) 
+            {
+                prop.setProperty("tutorialEnabled", "true");
+            }
+            else 
+            {
+                prop.setProperty("tutorialEnabled", "false");
+            }
+            prop.store(output, null);
+        } 
+        catch (IOException io) 
+        {
+            io.printStackTrace();
+        } 
+        finally
+        {
+            if (output != null) {
+                try {
+                    output.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    
+    public boolean getTuto()
+    {
+        Properties prop = new Properties();
+        InputStream input = null;
+        Boolean res = true;
+        try 
+        {
+            input = new FileInputStream("tuto.properties");
+            // Chargement du fichier
+            prop.load(input);
+            res = (prop.getProperty("tutorialEnabled").equals("true"));
+        }
+        catch (IOException ex) 
+        {
+            System.out.println("Fichier non existant");
+        } 
+        finally 
+        {
+            if (input != null) {
+                try {
+                    //On ferme le fichier
+                    input.close();
+                } 
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return res;
     }
 }
 

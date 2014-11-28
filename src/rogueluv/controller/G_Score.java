@@ -8,13 +8,15 @@ import java.io.OutputStream;
 
 import java.util.Properties;
 
+import javax.swing.JOptionPane;
+
 public class G_Score {
     public static String[] getBestScores(){
         Properties prop = new Properties();
         InputStream input = null;
         String[] res = new String[10];
         try {
-            input = new FileInputStream("config.properties");
+            input = new FileInputStream("scores.properties");
             // Chargement du fichier
             prop.load(input);
             // Scores de 1 à 10
@@ -58,7 +60,7 @@ public class G_Score {
         Properties prop = new Properties();
         OutputStream output = null;
         try {
-            output = new FileOutputStream("config.properties");
+            output = new FileOutputStream("scores.properties");
             for(int i=0; i<10; i++){
                 if(scores[i] != null) {
                     prop.setProperty("player" + i, scores[i].split(":")[0]);
@@ -66,7 +68,6 @@ public class G_Score {
                     System.out.println("Score " + scores[i] + " enregistré.");
                 }
             }
-            // save properties to project root folder
             prop.store(output, null);
         } 
         catch (IOException io) 

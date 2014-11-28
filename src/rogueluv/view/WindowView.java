@@ -14,6 +14,7 @@ import javax.swing.JFrame;
 
 import javax.swing.JLabel;
 import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import rogueluv.controller.RogueLuv;
@@ -165,5 +166,18 @@ public class WindowView extends JFrame implements KeyListener {
      */
     public void showScores() {
         vMenu.showBestScores();
+    }
+    
+    public void showTutorial() {
+        if(vMenu.getTuto())
+        {
+            JOptionPane.showConfirmDialog(null, 
+                "Déplacement : ZQSD ou les flèches directionnelles.\n" +
+                "Appuyez sur [Y] pour emprunter un escalier\n" +
+                "Difficulté modifiable dans le menu correspondant\n" +
+                "Raccourci pour lancer la partie : [N]\n\n" +
+                "Bon jeu !"
+            , "Tutorial \n", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+        }
     }
 }
